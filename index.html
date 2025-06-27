@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kokishindo Scroll with Compass</title>
+  <title>Kokishindo Scroll with Animated Compass</title>
   <style>
     body { background: #fdf6e3; font-family: serif; margin: 0; padding: 2rem; overflow-x: auto; white-space: nowrap; }
     section { display: inline-block; vertical-align: top; width: 80vw; max-width: 800px; margin-right: 2rem; background: #fff;
               padding: 2rem; border-radius: 1rem; box-shadow: 0 0 10px rgba(0,0,0,.1); }
     h1 { font-size: 1.8rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; }
     #timeline { background: #ddd; padding: 1rem; margin-bottom: 2rem; border-radius: 1rem; font-size: 1rem; white-space: normal; }
-    #compass { width: 200px; height: 200px; margin-bottom: 2rem; }
+    #compass { width: 200px; height: 200px; margin-bottom: 2rem; animation: rotateCompass 20s linear infinite; }
+    @keyframes rotateCompass {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
