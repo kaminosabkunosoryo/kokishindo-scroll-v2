@@ -2,42 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kokishindo Scroll with Animated Compass</title>
+  <title>Kokishindo Scroll with Interactive Timeline</title>
   <style>
-    body { background: #fdf6e3; font-family: serif; margin: 0; padding: 2rem; overflow-x: auto; white-space: nowrap; }
-    section { display: inline-block; vertical-align: top; width: 80vw; max-width: 800px; margin-right: 2rem; background: #fff;
-              padding: 2rem; border-radius: 1rem; box-shadow: 0 0 10px rgba(0,0,0,.1); }
-    h1 { font-size: 1.8rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; }
-    #timeline { background: #ddd; padding: 1rem; margin-bottom: 2rem; border-radius: 1rem; font-size: 1rem; white-space: normal; }
-    #compass { width: 200px; height: 200px; margin-bottom: 2rem; animation: rotateCompass 20s linear infinite; }
-    @keyframes rotateCompass {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    body { background: #fdf6e3; font-family: serif; margin: 0; padding: 2rem; }
+    .timeline-bar { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .milestone { padding: 1rem; background: #eee; border-radius: 10px; cursor: pointer; }
+    .content { display: none; margin-bottom: 2rem; padding: 1rem; background: #fff; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    .content img { max-width: 100px; float: left; margin-right: 1rem; }
+    h2 { font-size: 1.5rem; }
+    section { background: #fff; padding: 2rem; border-radius: 1rem; box-shadow: 0 0 10px rgba(0,0,0,.1); margin-bottom: 2rem; }
   </style>
+  <script>
+    function toggleContent(id) {
+      var el = document.getElementById(id);
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+  </script>
 </head>
 <body>
-  <div id="timeline">
-    <strong>Timeline of the Journey:</strong>
-    <ul>
-      <li>1972 – Birth of the Soryo</li>
-      <li>1985 – Training under Brian Stewart begins</li>
-      <li>1985–1991 – Apprenticeship under Sasha Burns</li>
-      <li>2017 – Kokishin Ryu founded</li>
-      <li>2025 – Scroll awakened and published</li>
-    </ul>
+  <div class="timeline-bar">
+    <div class="milestone" onclick="toggleContent('m1972')">1972</div>
+    <div class="milestone" onclick="toggleContent('m1985')">1985</div>
+    <div class="milestone" onclick="toggleContent('m1985_1991')">1985–1991</div>
+    <div class="milestone" onclick="toggleContent('m2017')">2017</div>
+    <div class="milestone" onclick="toggleContent('m2025')">2025</div>
   </div>
 
-  <div id="compass">
-    <svg viewBox="0 0 100 100" width="100%" height="100%">
-      <circle cx="50" cy="50" r="48" stroke="black" stroke-width="2" fill="white"/>
-      <text x="50" y="12" text-anchor="middle" font-size="10">Heaven</text>
-      <text x="50" y="97" text-anchor="middle" font-size="10">Earth</text>
-      <text x="88" y="55" text-anchor="middle" font-size="10">Fire</text>
-      <text x="12" y="55" text-anchor="middle" font-size="10">Water</text>
-      <line x1="50" y1="50" x2="50" y2="2" stroke="red" stroke-width="2"/>
-      <line x1="50" y1="50" x2="98" y2="50" stroke="red" stroke-width="2"/>
-    </svg>
+  <div id="m1972" class="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Yin_yang.svg/200px-Yin_yang.svg.png" alt="symbol">
+    <h2>Birth of the Soryo</h2>
+    <p><em>“From stillness, the breath enters the world.”</em></p>
+    <p>A child is born who will walk between warriorhood and healing.</p>
+  </div>
+
+  <div id="m1985" class="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Taijitu.svg/200px-Taijitu.svg.png" alt="dojo symbol">
+    <h2>Training Under Brian Stewart</h2>
+    <p><em>“First stance, first bow — the Way begins.”</em></p>
+    <p>Initial training begins under Brian Stewart in Rexburg, Idaho.</p>
+  </div>
+
+  <div id="m1985_1991" class="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Okinawa_Kobudo_Shinbukan_Logo.svg/1200px-Okinawa_Kobudo_Shinbukan_Logo.svg.png" alt="kobudo symbol">
+    <h2>Sasha Burns — Itosu Ryu</h2>
+    <p><em>“The staff, the kata, the awakening of the dragon’s calm.”</em></p>
+    <p>Six years of dual discipline: martial form and internal fire.</p>
+  </div>
+
+  <div id="m2017" class="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Red_circle.svg/800px-Red_circle.svg.png" alt="kokishin symbol">
+    <h2>Founding of Kokishin Ryu</h2>
+    <p><em>“Curiosity became a sword. Joy became the sheath.”</em></p>
+    <p>Kokishin Ryu is founded — the Way of the Curious Heart is born.</p>
+  </div>
+
+  <div id="m2025" class="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Scroll_icon.svg/1024px-Scroll_icon.svg.png" alt="scroll symbol">
+    <h2>Awakening of the Scroll</h2>
+    <p><em>“A scroll that breathes. A path that whispers.”</em></p>
+    <p>The sacred journey is revealed digitally at kokishindo.org.</p>
   </div>
 
   <section>
@@ -45,10 +68,12 @@
     <p>In 2017 I founded <strong>Kokishin Ryu</strong> — the Way of the Curious Heart, a joyful path of inquiry.</p>
     <p>More than martial art, Kokishin is a system of spiritual resilience, born from sorrow, shaped by light.</p>
   </section>
+
   <section>
     <h1>Chapter I — The Wounded Seed</h1>
     <p>I was raised in a house of light and shadow. Trauma became the forge; love, the tempering.</p>
   </section>
+
   <section>
     <h1>Chapter II — The Two Teachers</h1>
     <p>Training under Brian Stewart and Dr. A.J. “Sasha” Burns (1985–1991) revealed balance and forged my own path.</p>
